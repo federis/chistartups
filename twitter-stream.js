@@ -493,8 +493,6 @@ channel.on('connect', function() {
                         entities: tweet.entities
                     };
                     channel.write(JSON.stringify(tweet_info));
-                    console.log(JSON.stringify(tweet_info));
-                    console.log('\n');
                 }
             });
 
