@@ -1,1 +1,1 @@
-web: node twitter-stream.js
+worker: node twitter-stream.js
