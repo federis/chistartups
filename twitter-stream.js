@@ -10,6 +10,7 @@ var t = new twitter({
 
 var startups = [
     // begin testing accounts
+    /*
     {
         twitter_id: '2557521',
         lat: 41.8883695,
@@ -39,7 +40,7 @@ var startups = [
         twitter_id: '428333',
         lat: 41.8883695,
         lon: -87.6353645
-    },
+    },*/
     // end testing accounts
     {
         twitter_id: '22869238', 
