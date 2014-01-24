@@ -1,5 +1,19 @@
 var twitter = require('ntwitter');
 var hydna = require('hydna');
+var express = require("express");
+var logfmt = require("logfmt");
+var app = express();
+
+app.use(logfmt.requestLogger());
+
+app.get('/', function(req, res) {
+  res.send('Hi! :)');
+});
+
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+    console.log("Listening on " + port);
+});
 
 var t = new twitter({
     consumer_key: 'MZV9w6M8rxQlWQ0ggtQHg',

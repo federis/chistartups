@@ -24,6 +24,8 @@
   "homepage": "https://github.com/federis/chistartups",
   "dependencies": {
     "ntwitter": "~0.5.0",
-    "hydna": "~2.0.0"
+    "hydna": "~2.0.0",
+    "logfmt": "~0.18.1",
+    "express": "~3.4.8"
   }
 }
