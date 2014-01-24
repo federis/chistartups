@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+a, a:hover, a:focus, a:active {
+    color: #009999;
+}
+
+a {
+    text-decoration: none;
+}
+
+s {
+    text-decoration: none;
+}
+
+b {
+    font-weight: normal;
+}
+
+small {
+    font-size: 12px;
+}
+
+img {
+    border: 0;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    -moz-force-broken-image-icon: 1;
+}
+
+.fullname {
+    font-weight: bold;
+    color: #333;
+}
+
+.username s {
+    color: #bbb;
+}
+
+.username {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+.username {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Tweets */
+
+#tweets {
+    max-width: 320px;
+}
+
+#tweets .info {
+    margin-bottom: 15px;
+    color: #CCC;
+    padding: 15px;
+    text-align: center;
+}
+
+#tweets .tweet {
+    padding: 9px 12px;
+    border-bottom: 1px solid #DDD;
+}
+
+.tweet {
+    position: relative;
+    min-height: 51px;
+}
+
+.tweet .content {
+    margin-left: 58px;
+}
+
+.stream-item-header .account-group {
+    color: #999;
+}
+
+.stream-item-header .avatar {
+    float: left;
+    margin-top: 3px;
+    margin-left: -58px;
+}

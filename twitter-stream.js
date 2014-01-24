@@ -1,13 +1,17 @@
 var twitter = require('ntwitter');
 var hydna = require('hydna');
+var fs = require("fs");
 var express = require("express");
 var logfmt = require("logfmt");
-var app = express();
+var app = express.createServer();
 
 app.use(logfmt.requestLogger());
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-  res.send('Hi! :)');
+    fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text) {
+        res.send(text);
+    });
 });
 
 var port = Number(process.env.PORT || 5000);
