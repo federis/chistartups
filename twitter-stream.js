@@ -24,7 +24,6 @@ var t = new twitter({
 
 var startups = [
     // begin testing accounts
-    
     {
         twitter_id: '2557521',
         lat: 41.8883695,
@@ -491,6 +490,7 @@ channel.on('connect', function() {
         function(stream) {
             console.log('Connected to Twitter ...');
             stream.on('data', function(tweet) {
+                console.log(JSON.stringify(tweet));
                 startup = findStartup(tweet.user.id_str);
                 if (startup.length > 0) {
                     var tweet_info = {
