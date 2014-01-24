@@ -490,7 +490,6 @@ channel.on('connect', function() {
         function(stream) {
             console.log('Connected to Twitter ...');
             stream.on('data', function(tweet) {
-                console.log(JSON.stringify(tweet));
                 startup = findStartup(tweet.user.id_str);
                 if (startup.length > 0) {
                     var tweet_info = {
