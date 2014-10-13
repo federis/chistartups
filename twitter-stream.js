@@ -25,7 +25,7 @@ var server = http.createServer(app)
 // Twitter accounts array
 var watchStartups = [
   // begin testing accounts
-  
+  /*
   {
     twitter_id: '2557521',
     lat: 41.8883695,
@@ -51,8 +51,8 @@ var watchStartups = [
     lat: 41.8883695,
     lon: -87.6353645
   },
+  */
   // end testing accounts
-  
   {
     twitter_id: '22869238',
     lat: 41.8896996,
@@ -472,13 +472,13 @@ t.stream('statuses/filter', { follow: twitter_ids }, function(stream) {
   })
 })
 
-//Create the server
+// Create the server
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
 function findStartup(twitter_id) {
   return watchStartups.filter(function(item) {
-    return item.twitter_id == twitter_id
+    return item.twitter_id === twitter_id
   })
 }
