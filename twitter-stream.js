@@ -12,6 +12,7 @@ var express = require('express')
       'polling duration': 10
     })
   , http = require('http')
+  , sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD)
   , twitter = require('ntwitter')
   , _ = require('underscore')
   , path = require('path')
@@ -54,6 +55,10 @@ var watchStartups = [
   */
   // end testing accounts
   {
+    twitter_id: '2600293579',
+    lat: 41.89624,
+    lon: -87.632462
+  }, {
     twitter_id: '22869238',
     lat: 41.8896996,
     lon: -87.6371928
@@ -413,6 +418,36 @@ app.use(methodOverride())
 // Our only route, render with the current list of tweets
 app.get('/', function(req, res) {
   res.render('index', { data: tweetsList })
+})
+
+app.post('/contact', function(req, res) {
+  var company = req.body.company
+  , twitter = req.body.twitter
+  , address = req.body.address
+  , email = req.body.email
+
+  console.log(company + 
+    ', ' + twitter +
+    ', ' + address +
+    ', ' + email)
+
+  var emailMsg     = new sendgrid.Email({
+    to:       email,
+    from:     'asaf@flyoverworks.com',
+    fromname: 'FlyoverWorks',
+    subject:  'Thanks for adding ' + company + ' to the live tweets map',
+    text:     'Hi,\n\nThank you for submitting your request to add or update ' + 
+              company + ' on the Chicago Startups Live Tweets Map. We will ' +
+              'review and verify the information you provided and update the ' +
+              'map within the next 24 hours.'
+  })
+
+  console.log(process.env.SENDGRID_USERNAME + ', ' + process.env.SENDGRID_PASSWORD)
+
+  sendgrid.send(emailMsg, function(err, json) {
+    if (err) { return console.error(err) }
+    res.json(200)
+  })
 })
 
 app.use(require('stylus').middleware(__dirname + '/public'))

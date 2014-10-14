@@ -61,15 +61,26 @@ $(function() {
       renderTweet(data)
     }
   })
-})
-/*
-  channel.onclose = function(event) {
-    $('<div/>', {
-      'class': 'info',
-      text: 'Disconnected for reason: ' + event.reason
-    }).prependTo(tweets);
-  };
 
-  channel.onmessage = function(event) {
-});
-*/
+  $('#add-btn').click(function() {
+    $('#mask').addClass('visible')
+    $('#add-account-form').addClass('visible')
+  })
+
+  $('#mask, .close').click(function() {
+    $('#mask').removeClass('visible')
+    $('#add-account-form').removeClass('visible')    
+  })
+
+  $('#contact').submit(function() {
+    $.ajax({
+      type: "POST",
+      url: '/contact',
+      data: $("#contact").serialize(), // serializes the form's elements.
+      success: function(data) {
+        alert(data)
+      }
+    })
+    return false
+  })
+})
