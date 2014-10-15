@@ -65,20 +65,42 @@ $(function() {
   $('#add-btn').click(function() {
     $('#mask').addClass('visible')
     $('#add-account-form').addClass('visible')
+    ga('send', 'event', 'form', 'view')
   })
 
   $('#mask, .close').click(function() {
     $('#mask').removeClass('visible')
-    $('#add-account-form').removeClass('visible')    
+    $('#add-account-form').removeClass('visible')
   })
 
   $('#contact').submit(function() {
+    ga('send', 'event', 'form', 'submit')
     $.ajax({
       type: "POST",
       url: '/contact',
       data: $("#contact").serialize(), // serializes the form's elements.
       success: function(data) {
-        alert(data)
+        if (data === 200) {
+          ga('send', 'event', 'form', 'success')
+          $('#mask').removeClass('visible')
+          $('#add-account-form').removeClass('visible')
+          $('#alert')
+            .text('Thanks! We\'ll update the map shortly.')
+            .removeClass('fail')
+            .addClass('success')
+          setTimeout(function() {
+            $('#alert').removeClass('success')
+          }, 10000)
+        } else {
+          ga('send', 'event', 'form', 'fail')
+          $('#alert')
+            .text('Unable to submit form. Please check the information and re-submit.')
+            .removeClass('success')
+            .addClass('fail')
+          setTimeout(function() {
+            $('#alert').removeClass('fail')
+          }, 10000)
+        }
       }
     })
     return false

@@ -421,10 +421,11 @@ app.get('/', function(req, res) {
 })
 
 app.post('/contact', function(req, res) {
-  var company = req.body.company
+  var name = req.body.name
+  , email = req.body.email
+  , company = req.body.company
   , twitter = req.body.twitter
   , address = req.body.address
-  , email = req.body.email
 
   console.log(company + 
     ', ' + twitter +
@@ -435,18 +436,21 @@ app.post('/contact', function(req, res) {
     to:       email,
     from:     'asaf@flyoverworks.com',
     fromname: 'FlyoverWorks',
-    subject:  'Thanks for adding ' + company + ' to the live tweets map',
-    text:     'Hi,\n\nThank you for submitting your request to add or update ' + 
-              company + ' on the Chicago Startups Live Tweets Map. We will ' +
-              'review and verify the information you provided and update the ' +
-              'map within the next 24 hours.'
+    subject:  'Your Request to Add ' + company + ' to the CHITweets Map',
+    html:     'Hi ' + name + ',<br/><br/>Thank you for submitting a request ' +
+              'to add ' + company + ' to the CHITweets Map. We\'re reviewing ' +
+              'and verifying the information you provided and will update ' +
+              'the map in the next 24 hours.<br/><br/>Asaf Elani<br/>' +
+              '<a href="http://www.flyoverworks.com">FlyoverWorks</a>'
   })
 
-  console.log(process.env.SENDGRID_USERNAME + ', ' + process.env.SENDGRID_PASSWORD)
-
   sendgrid.send(emailMsg, function(err, json) {
-    if (err) { return console.error(err) }
-    res.json(200)
+    if (err) { 
+      res.json(400)
+      return console.error(err)
+    } else {
+      res.json(200)
+    }
   })
 })
 
