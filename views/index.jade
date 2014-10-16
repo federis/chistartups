@@ -2,10 +2,11 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    title CHITweets - Real-Time Chicago Tweets Map
+    title CHI Tweets - Real-Time Chicago Tweets Map
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', type='text/css')
     link(rel='stylesheet', href='/style/app.css')
     script(src="http://code.jquery.com/jquery-1.10.1.min.js")
+    script(src="/script/jquery.validate.min.js")
     script(src="components/socket.io-client/socket.io.js")
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB57SQEIyABGvSVF_gE9uCny9J3XG0vgk0&sensor=false")
     script.
@@ -93,18 +94,18 @@ html
             p Please fill in the information below to get added:
             div
               label Your Name
-              input(type="text", name="name")
+              input(type="text", name="name", id="nameField")
             div
               label Your Email
-              input(type="email", name="email")
+              input(type="email", name="email", id="emailField")
             div
               label Company Name
-              input(type="text", name="company")
+              input(type="text", name="company", id="companyField")
             div
               label Twitter Handle
-              input(type="text", name="twitter")
+              input(type="text", name="twitter", id="twitterField")
             div
               label Office Address
-              input(type="text", name="address")
+              input(type="text", name="address", id="addressField")
             div
               button#submit Submit
