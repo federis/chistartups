@@ -49,16 +49,14 @@ $(function() {
 
   var socket = io.connect(window.location.hostname)
   socket.on('data', function(data) {
-    if (data.length) {
+    if (data.length != undefined) {
       $('<div/>', {
         'class': 'info',
         text: 'Connected. Waiting for tweets!'
       }).prependTo(tweets)
-      if (data.length > 0) {
-        $.each(data, function(index, tweet) {
-          renderTweet(JSON.parse(tweet))
-        })
-      }
+      $.each(data, function(index, tweet) {
+        renderTweet(JSON.parse(tweet))
+      })
     } else {
       renderTweet(data)
     }
