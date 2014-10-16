@@ -391,11 +391,6 @@ var watchStartups = [
     lat: 41.8883695,
     lon: -87.6353645
   }, {
-    // @CareTreeMe
-    twitter_id: '789555043',
-    lat: 41.901796,
-    lon: -87.689621
-  }, {
     // @smallbizhive
     twitter_id: '415814667',
     lat: 41.895865,
@@ -480,6 +475,21 @@ var watchStartups = [
     twitter_id: '19910585',
     lat: 41.9031361,
     lon: -87.6286364
+  }, {
+    // @contextmediainc
+    twitter_id: '1059030948',
+    lat: 41.888872,
+    lon: -87.627583    
+  }, {
+    // @GrouponChicago
+    twitter_id: '16633816',
+    lat: 41.896917,
+    lon: -87.643547
+  }, {
+    // @CancerIQ
+    twitter_id: '1153392204',
+    lat: 41.8883695,
+    lon: -87.6353645
   }
 ]
 
