@@ -54,9 +54,11 @@ $(function() {
         'class': 'info',
         text: 'Connected. Waiting for tweets!'
       }).prependTo(tweets)
-      $.each(data, function(index, tweet) {
-        renderTweet(JSON.parse(tweet))
-      })
+      if (data.length > 0) {
+        $.each(data, function(index, tweet) {
+          renderTweet(JSON.parse(tweet))
+        })
+      }
     } else {
       renderTweet(data)
     }
