@@ -1,6 +1,12 @@
-/**
- * Module dependencies.
- */
+// App monitoring with Nodetime
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'CHI Tweets' // optional
+  })
+}
+
+// Module dependencies
 var express = require('express')
   , io = require('socket.io')({
       'transports': ['xhr-polling']
