@@ -55,7 +55,7 @@ $(function() {
         text: 'Connected. Waiting for tweets!'
       }).prependTo(tweets)
       $.each(data, function(index, tweet) {
-        renderTweet(JSON.parse(tweet))
+        renderTweet(tweet)
       })
     } else {
       renderTweet(data)
