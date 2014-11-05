@@ -54,7 +54,7 @@ footer {
   margin-right: 12px;
 }
 #bic span {
-  font-size: 24px;
+  font-size: 22px;
   color: #1b3e94;
   text-transform: uppercase;
   vertical-align: middle;
@@ -64,7 +64,7 @@ footer {
   display: inline-block;
   font-size: 12px;
   margin-right: 12px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   line-height: 1;
 }
 #logo {
@@ -266,18 +266,22 @@ footer {
   color: #a94442;
   top: 0;
 }
-@media (max-width: 1128px) {
+@media (max-width: 1260px) {
   #bic, 
   #by {
     display: none;
   }
 }
-@media (max-width: 820px) {
+@media (max-width: 980px) {
   #map,
   #tweets {
     float: none;
     width: 100%;
     max-width: none;
+  }
+  #tweets {
+    border-left: none;
+    border-top: solid 1px #ccc;    
   }
   #map {
     height: 70%;
@@ -293,11 +297,11 @@ footer {
   }
   #logo {
     position: absolute;
-    left: 6px;
+    left: 10px;
     top: 0;
   }
   #logo img {
-    width: 60%;
+    width: 225px;
   }
   #add-btn {
     top: initial;
