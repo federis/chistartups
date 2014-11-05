@@ -54,7 +54,7 @@ $(function() {
         'class': 'info',
         text: 'Connected. Waiting for tweets!'
       }).prependTo(tweets)
-      $.each(data, function(index, tweet) {
+      $.each(data.reverse(), function(index, tweet) {
         renderTweet(tweet)
       })
     } else {
