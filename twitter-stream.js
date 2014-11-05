@@ -38,8 +38,6 @@ var findTwitterAccount = function(db, twitter_id, callback) {
   var collection = db.collection('startups')
   // Search for twitter account id in list of accounts to track
   collection.find({twitter_id:twitter_id}).toArray(function(err, account) {
-    console.log('findTwitterAccount:')
-    console.dir(account)
     callback(account)
   })
 }
