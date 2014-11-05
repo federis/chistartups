@@ -1,4 +1,4 @@
-$(function() {
+function app_init() {
   var tweets = $('#tweets')
   var markers = []
   var zIndex = 1
@@ -148,4 +148,4 @@ $(function() {
 
     return false
   })
-})
+}
