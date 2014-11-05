@@ -34,7 +34,7 @@ var findRecentTweets = function(db, callback) {
   // Get the tweets collection
   var collection = db.collection('tweets')
   // Find the last 20 tweets
-  collection.find().sort({_id:1}).limit(20).toArray(function(err, tweets) {
+  collection.find().sort({_id:-1}).limit(20).toArray(function(err, tweets) {
     callback(tweets)
   })     
 }
