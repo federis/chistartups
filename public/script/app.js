@@ -1,11 +1,70 @@
-function app_init() {
+function addGoogleMap() {
+  var script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initializeMap'
+  document.body.appendChild(script)
+}
+function initializeMap() {
+  var mapOptions = {
+    center: new google.maps.LatLng(41.8883695, -87.6353645),
+    minZoom: 13,
+    maxZoom: 16,
+    zoom: 15,
+    mapTypeControl: false,
+    zoomControl: false,
+    panControl: false, 
+    streetViewControl: false,
+    styles: [
+      {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "hue": "#b3ddf2"
+          }, {
+            "visibility": "on"
+          }
+        ]
+      }, {
+        "featureType": "landscape",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      }, {
+        "featureType": "road",
+        "stylers": [
+          {
+            "saturation": -100
+          }, {
+            "lightness": 45
+          }
+        ]
+      }, {
+        "featureType": "poi",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      }
+    ]
+  }
+  window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+  google.maps.event.addListenerOnce(window.map, 'idle', function(){
+    // do something only the first time the map is loaded
+    appInit()
+  })
+}
+function appInit() {
   var tweets = $('#tweets')
   var markers = []
   var zIndex = 1
 
   var renderTweet = function(tweet) {
     try {
-      var myLatlng = new google.maps.LatLng(tweet.user.lat, tweet.user.lon);
+      var myLatlng = new google.maps.LatLng(tweet.user.lat, tweet.user.lon)
       var contentString = 
         '<div class="tweet">' +
           '<div class="content">' +
@@ -145,7 +204,6 @@ function app_init() {
         }
       }
     })
-
     return false
   })
 }

@@ -8,74 +8,18 @@ html
     script(src="http://code.jquery.com/jquery-1.10.1.min.js")
     script(src="/script/jquery.validate.min.js")
     script(src="components/socket.io-client/socket.io.js")
+    script(src="/script/app.js")
     script.
-      function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(41.8883695, -87.6353645),
-          minZoom: 13,
-          maxZoom: 16,
-          zoom: 15,
-          mapTypeControl: false,
-          zoomControl: false,
-          panControl: false, 
-          streetViewControl: false,
-          styles: [
-            {
-              "featureType": "water",
-              "elementType": "all",
-              "stylers": [
-                {
-                  "hue": "#b3ddf2"
-                }, {
-                  "visibility": "on"
-                }
-              ]
-            }, {
-              "featureType": "landscape",
-              "stylers": [
-                {
-                  "color": "#f2f2f2"
-                }
-              ]
-            }, {
-              "featureType": "road",
-              "stylers": [
-                {
-                  "saturation": -100
-                }, {
-                  "lightness": 45
-                }
-              ]
-            }, {
-              "featureType": "poi",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            }
-          ]
-        }
-        window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
-        app_init()
-      }
-      function loadscript() {
-        var script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize'
-        document.body.appendChild(script)
-      }
-      window.onload = loadscript
+      window.onload = addGoogleMap
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga')
 
-      ga('create', 'UA-55801500-1', 'auto');
-      ga('require', 'displayfeatures');
-      ga('send', 'pageview');
-    script(src="/script/app.js")
+      ga('create', 'UA-55801500-1', 'auto')
+      ga('require', 'displayfeatures')
+      ga('send', 'pageview')
   body
     div(style="width: 100%; height: 100%; overflow: hidden;")
       #alert
