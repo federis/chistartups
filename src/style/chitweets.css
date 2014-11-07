@@ -261,13 +261,13 @@ footer {
   color: #a94442;
   top: 0;
 }
-@media (max-width: 1260px) {
+@media (max-width: 1100px) {
   #bic, 
   #by {
     display: none;
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 940px) {
   #map,
   #tweets {
     float: none;
@@ -293,7 +293,7 @@ footer {
   #logo {
     position: absolute;
     left: 10px;
-    top: 0;
+    top: 10px;
   }
   #logo img {
     width: 225px;
