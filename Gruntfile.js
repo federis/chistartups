@@ -14,10 +14,6 @@ module.exports = function(grunt) {
         },
         src: ['<%=jsDir%>*.js'],
         dest: '<%=jsDir%><%= pkg.name %>.js'
-      },
-      css: {
-        src: ['<%=cssDir%>*.css'],
-        dest: '<%=cssDir%><%= pkg.name %>.css'
       }
     },
     uglify: {
@@ -44,7 +40,7 @@ module.exports = function(grunt) {
             '************************************/\n'
         },
         files: {
-          '<%=cssDistDir%><%= pkg.name %>.min.css': ['<%= concat.css.dest %>']
+          '<%=cssDistDir%><%= pkg.name %>.min.css': ['<%=cssDir%><%= pkg.name %>.css']
         }
       }
     },
