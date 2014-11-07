@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: 'Open Sans', sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+a, a:hover, a:focus, a:active {
+  color: #009999;
+}
+a, s {
+  text-decoration: none;
+}
+b {
+  font-weight: normal;
+}
+small {
+  font-size: 12px;
+}
+img {
+  border: 0;
+}
+#map {
+  float: left;
+  width: calc(100% - 321px);
+  height: 100%;
+  overflow: hidden;
+}
+#map-canvas {
+  width: 100%;
+  height: calc(100% - 80px);
+}
+footer {
+  width: calc(100% - 40px);
+  height: 70px;
+  background: #ddd;
+  border-top: solid 1px #ccc;
+  padding: 5px 20px;
+  position: relative;
+}
+#bic {
+  display: inline-block;
+  margin-right: 12px;
+}
+#bic img {
+  vertical-align: middle;
+  margin-right: 12px;
+}
+#bic span {
+  font-size: 22px;
+  color: #1b3e94;
+  text-transform: uppercase;
+  vertical-align: middle;
+  line-height: 1;
+}
+#by {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 12px;
+  text-transform: lowercase;
+  line-height: 1;
+}
+#logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+#add-btn {
+  background: #cd5115;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  padding: 18px 40px;
+  line-height: 1.4;
+  transition: 0.3s;
+}
+#add-btn:hover {
+  background: #a44111;
+}
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  -moz-force-broken-image-icon: 1;
+}
+.fullname {
+  font-weight: bold;
+  color: #333;
+}
+.username s {
+  color: #bbb;
+}
+.username {
+  direction: ltr;
+  unicode-bidi: embed;
+  font-size: 12px;
+  color: #999;
+}
+/* Tweets */
+#tweets {
+  max-width: 320px;
+  width: 320px;
+  height: 100%;
+  float: left;
+  overflow-y: scroll;
+  border-left: solid 1px #ccc;
+}
+#tweets .info {
+  margin-bottom: 15px;
+  color: #CCC;
+  padding: 15px;
+  text-align: center;
+}
+#tweets .tweet {
+  padding: 9px 12px;
+  border-bottom: 1px solid #DDD;
+}
+.tweet {
+  position: relative;
+  min-height: 51px;
+}
+.tweet .content {
+  margin-left: 58px;
+}
+.tweet .content .tweet-text a {
+  color: #000;
+}
+.stream-item-header .account-group {
+  color: #999;
+}
+.stream-item-header .avatar {
+  float: left;
+  margin-top: 3px;
+  margin-left: -58px;
+}
+/* Add account form */
+#mask {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #000;
+  opacity: 0.5;
+}
+#mask.visible {
+  display: block;
+}
+#add-account-form.visible {
+  top: 50%;
+}
+.close {
+  width: 13px;
+  height: 13px;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0.7;
+  right: 12px;
+  top: 12px;
+  z-index: 10000;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+#add-account-form {
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  top: -200px;
+  width: 400px;
+  height: 373px;
+  margin-left: -200px;
+  margin-top: -187px;
+  background: #fff;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  transition: top 0.3s;
+}
+#contact {
+  padding: 12px 50px 12px 12px;
+}
+#contact > p,
+#contact > div {
+  margin-bottom: 12px;
+}
+#contact > div:last-child {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+#contact > h3 {
+  margin-bottom: 24px;
+}
+#contact label {
+  float: left;
+  width: 120px;
+  font-size: 12px;
+  margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+#contact input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  width: 160px;
+  transition: 0.3s;
+}
+#contact input:hover {
+  border-color: #999;
+}
+#contact input:focus {
+  border-color: #666;
+  outline: none;
+}
+#contact button {
+  background-color: #cd5115;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 32px;
+  margin-left: 38px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#contact button:hover {
+  background: #a44111;
+}
+#contact button:active,
+#contact button:focus {
+  outline: none;
+}
+#alert {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  text-align: center;
+  padding: 16px;
+  line-height: 1;
+  top: -50px;
+  transition: 0.5s;
+}
+#alert.success {
+  background: #dff0d8;
+  color: #3c763d;
+  top: 0;
+}
+#alert.fail {
+  background: #f2dede;
+  color: #a94442;
+  top: 0;
+}
+@media (max-width: 1260px) {
+  #bic, 
+  #by {
+    display: none;
+  }
+}
+@media (max-width: 980px) {
+  #map,
+  #tweets {
+    float: none;
+    width: 100%;
+    max-width: none;
+  }
+  #tweets {
+    border-left: none;
+    border-top: solid 1px #ccc;    
+  }
+  #map {
+    height: 70%;
+  }
+  #map-canvas {
+    height: 100%;
+  }
+  footer {
+    position: static;
+    border: none;
+    height: 0;
+    padding: 0;
+  }
+  #logo {
+    position: absolute;
+    left: 10px;
+    top: 0;
+  }
+  #logo img {
+    width: 225px;
+  }
+  #add-btn {
+    top: initial;
+    bottom: 30%;
+    font-size: 12px;
+    padding: 4px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  #add-account-form {
+    top: -210px;
+    width: 300px;
+    height: 414px;
+    margin-left: -150px;
+    margin-top: -207px;
+  }
+  #add-account-form input {
+    width: 90px;
+  }
+}
