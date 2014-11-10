@@ -8,6 +8,7 @@ if(process.env.NODETIME_ACCOUNT_KEY) {
 
 // Module dependencies
 var express = require('express')
+  , bodyParser = require('body-parser')
   , io = require('socket.io')({
       'transports': ['xhr-polling']
     }, {
@@ -76,12 +77,19 @@ app.set('port', process.env.PORT || 3000)
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
 // Our only route, render with the current list of tweets
 app.get('/', function(req, res) {
   res.render('index')
 })
 
 app.post('/contact', function(req, res) {
+
+  console.dir(req.body)
+
   var name = req.body.name
   , email = req.body.email
   , company = req.body.company
