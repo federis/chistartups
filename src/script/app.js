@@ -1,8 +1,22 @@
 function addGoogleMap() {
+  showIntro()
   var script = document.createElement('script')
   script.type = 'text/javascript'
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initializeMap'
   document.body.appendChild(script)
+}
+function showIntro() {
+  var i = 4
+  loadingTimer = setInterval(function() {
+    if (i > 0) {
+      $('.loading').fadeOut(500, function() { $('.loading').fadeIn(500) })
+      $('#timer').html(i)
+      i--
+    } else {
+      clearInterval(loadingTimer)
+      $('#intro').fadeOut(500, function(){ $('intro').hide() })
+    }
+  }, 1000)
 }
 function initializeMap() {
   var mapOptions = {
@@ -119,7 +133,7 @@ function appInit() {
         text: 'Connected. Waiting for tweets!'
       }).prependTo(tweets)
       $.each(data.reverse(), function(index, tweet) {
-        setTimeout(function(){renderTweet(tweet)}, 5000 * index)
+        setTimeout(function(){renderTweet(tweet)}, 3000 * index)
       })
     } else {
       renderTweet(data)
