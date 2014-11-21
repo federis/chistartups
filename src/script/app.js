@@ -1,11 +1,4 @@
-function addGoogleMap() {
-  showIntro()
-  var script = document.createElement('script')
-  script.type = 'text/javascript'
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initializeMap'
-  document.body.appendChild(script)
-}
-function showIntro() {
+function init() {
   var i = 4
   loadingTimer = setInterval(function() {
     if (i > 0) {
@@ -17,6 +10,14 @@ function showIntro() {
       $('#intro').fadeOut(500, function(){ $('intro').hide() })
     }
   }, 1000)
+
+  addGoogleMap()
+}
+function addGoogleMap() {
+  var script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initializeMap'
+  document.body.appendChild(script)
 }
 function initializeMap() {
   var mapOptions = {
@@ -68,10 +69,10 @@ function initializeMap() {
   window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
   google.maps.event.addListenerOnce(window.map, 'idle', function() {
     // do something only the first time the map is loaded
-    appInit()
+    app()
   })
 }
-function appInit() {
+function app() {
   var tweets = $('#tweets')
   var markers = []
   var zIndex = 1
